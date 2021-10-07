@@ -1,8 +1,12 @@
 <template>
    <div>
        <!-- here content should be anything we want -->
-        <header>
-            <slot name="header"></slot>
+        <header v-if="$slots.header">
+           <!-- with $slot we can check that whether we  receive the data for a specific slot or if not
+          we could use this info to not render a certain element -->
+            <slot name="header">
+                <!-- <h2> The default</h2> -->
+            </slot>
         </header>
         <slot></slot>
 <!-- {{ content}} -->
@@ -11,9 +15,11 @@
 
 <script>
 
-// export default {
-//     props:['content']
-// }
+export default {
+    mounted(){
+        console.log(this.$slots.header);//everytime we use slot mount is called and $slot is builtin property provided by vue and it holds information about the slot data
+    }
+}
 </script>
 
 
