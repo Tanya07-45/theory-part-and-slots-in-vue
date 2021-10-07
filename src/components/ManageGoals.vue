@@ -3,10 +3,14 @@
     <h2>Manage Goals</h2>
     <input type="text" ref="goal"/>
     <button @click="setGoal">Set Goal</button>
+    <teleport to="body">
+        <!-- it means that please render the content of this  component  directly in body element not in deep nested in html structure -->
+        <!-- check in console  wvwrything is working but semantically not correct so we use this component-->
     <error-alert v-if="inputIsInvalid">
         <h2>Input is Invalid</h2>
         <button @click="confirmError">Okay</button>
     </error-alert>
+    </teleport>
     </div>
 </template>
 <script>
